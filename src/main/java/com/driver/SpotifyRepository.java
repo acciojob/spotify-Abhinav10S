@@ -50,14 +50,14 @@ public class SpotifyRepository {
         artist.setName(name);
         artist.setLikes(0);
         artists.add(artist) ;
-        return artist ;
+        return artist  ;
     }
 
     public Album createAlbum(String title, String artistName) {
         Artist artist = new Artist() ;
 
         for (Artist art : artists){
-            if (art.getName() == artistName){
+            if (Objects.equals(art.getName() , artistName)){
                 artist = art ;
                 break ;
             }
@@ -73,6 +73,7 @@ public class SpotifyRepository {
 
             List<Album> albumL1 = new ArrayList <>() ;
             albumL1.add(album) ;
+
             artistAlbumMap.put(artist,albumL1) ;
             return album ;
         }
@@ -99,7 +100,7 @@ public class SpotifyRepository {
 
         Album album = null ;
         for (Album album1 : albums){
-            if(album1.getTitle() == title){
+            if(album1.getTitle().equals(albumName)){
                 album = album1 ;
                 break ;
             }
@@ -117,7 +118,7 @@ public class SpotifyRepository {
 
             songs.add(song) ;
 
-            if (albumSongMap.containsKey(song)){
+            if (albumSongMap.containsKey(album)){
                 List <Song> songs1 = albumSongMap.get(album) ;
                 songs1.add(song) ;
                 albumSongMap.put(album,songs1) ;

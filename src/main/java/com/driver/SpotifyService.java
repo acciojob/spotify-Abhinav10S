@@ -34,23 +34,23 @@ public class SpotifyService {
     }
 
     public Playlist createPlaylistOnName(String mobile, String title, List<String> songTitles) throws Exception {
-            return createPlaylistOnName(mobile,title,songTitles) ;
+            return spotifyRepository.createPlaylistOnName(mobile,title,songTitles) ;
     }
 
     public Playlist findPlaylist(String mobile, String playlistTitle) throws Exception {
-        return findPlaylist(mobile , playlistTitle) ;
+        return spotifyRepository.findPlaylist(mobile , playlistTitle) ;
 
     }
 
     public Song likeSong(String mobile, String songTitle) throws Exception {
-          return likeSong(mobile , songTitle) ;
+          return spotifyRepository.likeSong(mobile , songTitle) ;
     }
 
     public String mostPopularArtist() {
-           return mostPopularArtist() ;
+           return spotifyRepository.mostPopularArtist() ;
     }
 
     public String mostPopularSong() {
-          return mostPopularSong() ;
+          return spotifyRepository.mostPopularSong() ;
     }
 }

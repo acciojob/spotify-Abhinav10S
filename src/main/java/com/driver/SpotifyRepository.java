@@ -38,23 +38,20 @@ public class SpotifyRepository {
     }
 
     public User createUser(String name, String mobile) {
-        User user = new User () ;
-        user.setName(name) ;
-        user.setMobile(mobile) ;
+        User user = new User (name,mobile)  ;
         users.add(user) ;
-        return user ;
+        return user  ;
     }
 
     public Artist createArtist(String name) {
-        Artist artist = new Artist() ;
-        artist.setName(name);
+        Artist artist = new Artist(name) ;
         artist.setLikes(0);
         artists.add(artist) ;
         return artist  ;
     }
 
     public Album createAlbum(String title, String artistName) {
-        Artist artist = new Artist() ;
+        Artist artist = null ;
 
         for (Artist art : artists){
             if (Objects.equals(art.getName() , artistName)){
@@ -65,8 +62,8 @@ public class SpotifyRepository {
 
         if (artist == null){
             artist = createArtist(artistName) ;
-            Album album = new Album() ;
-            album.setTitle(title);
+
+            Album album = new Album(title)  ;
             album.setReleaseDate(new Date());
 
             albums.add(album) ;
@@ -78,8 +75,7 @@ public class SpotifyRepository {
             return album ;
         }
         else{
-            Album album = new Album() ;
-            album.setTitle(title);
+            Album album = new Album(title)  ;
             album.setReleaseDate(new Date ());
 
             albums.add(album) ;
@@ -107,7 +103,7 @@ public class SpotifyRepository {
         }
 
         if (album == null){
-            throw new Exception("Album does not Exist") ;
+            throw new Exception("Album does not exist") ;
         }
 
         else{

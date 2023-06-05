@@ -311,6 +311,7 @@ public class SpotifyRepository {
                 return song;
             } else {
                 int likes = song.getLikes() +1 ;
+                song.setLikes(likes);
                 list.add(user) ;
                 songLikeMap.put(song , list) ;
 
